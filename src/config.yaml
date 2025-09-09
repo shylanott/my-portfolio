@@ -1,6 +1,6 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
+  name: Shyla Nott
+  site: 'https://shylanott.netlify.com'
   base: '/'
   trailingSlash: false
 
@@ -9,9 +9,9 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: Shyla Nott
+    template: 'Shyla Nott'
+  description: "Data Analytics | Product Strategy | 10 years of experience in news media"
   robots:
     index: true
     follow: true

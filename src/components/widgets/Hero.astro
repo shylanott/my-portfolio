@@ -39,9 +39,10 @@ const {
         {
           title && (
             <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-              set:html={title}
-            />
+            class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade text-gray-900 dark:text-transparent dark:bg-gradient-to-r dark:from-green-500 dark:to-blue-500 dark:bg-clip-text"
+            style="padding-bottom: 4px; line-height: 1.1;"
+            set:html={title}
+          />
           )
         }
         <div class="max-w-3xl mx-auto">

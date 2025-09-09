@@ -1,0 +1,142 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import calmattersNewsroom from '~/assets/images/calmatters-newsroom.jpg';
+import heatmapImage from '~/assets/images/heatmap.jpg';
+import weeklyReportImage from '~/assets/images/weekly-analytics-report-1.png';
+
+const metadata = {
+  title: 'CalMatters Data Infrastructure & Dashboards - Shyla Nott',
+  description: 'How I built data infrastructure and dashboards to democratize analytics at CalMatters newsroom'
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header
+      links={[
+        { text: 'About', href: '/#about' },
+        { text: 'Projects', href: '/#portfolio' },
+        { text: 'Contact', href: '/#contact' },
+      ]}
+      actions={[
+        {
+          text: 'Resume',
+          href: '/resume.pdf',
+          target: '_blank',
+        },
+      ]}
+      showToggleTheme
+      position="right"
+    />
+  </Fragment>
+
+  <main class="mx-auto max-w-3xl px-6 py-12 md:py-20">
+    
+    <!-- Back Navigation -->
+    <div class="mb-8">
+      <a 
+        href="/#portfolio" 
+        class="inline-flex items-center text-finlandia-400 hover:text-finlandia-500 transition-colors duration-200 text-sm font-medium relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-finlandia-400 dark:after:bg-blue-700 after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out hover:after:scale-x-100"
+      >
+        ← Back to Projects
+      </a>
+    </div>
+
+    <!-- Article Header -->
+    <header class="mb-8">
+      <h1 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading">
+        CalMatters Data Infrastructure & Dashboards
+      </h1>
+      <p class="text-xl text-muted dark:text-slate-400 leading-relaxed">
+        Designed and operated a data structure that guided efforts to build an audience and analyzed the success of product initiatives.
+      </p>
+    </header>
+
+    <!-- Hero Image -->
+    <div class="mb-8">
+      <img
+        src={calmattersNewsroom.src}
+        alt="CalMatters newsroom"
+        class="w-full rounded-md shadow-lg bg-gray-400 dark:bg-slate-700"
+        width="900"
+        height="480"
+      />
+    </div>
+
+    <!-- Article Content -->
+    <div class="mx-auto prose prose-lg dark:prose-invert prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg max-w-none">
+      
+      <p class="text-xl text-muted dark:text-slate-400 leading-relaxed">
+        When I joined CalMatters, the newsroom had one, multi-page dashboard that was no longer maintained. It contained dozens of metrics without clear connections to business goals, and only a few individuals (mainly leadership and top editors) used it. My task was to bring together data from a variety of sources — referral traffic metrics, social media insights, newsletter subscription growth — into interactive dashboards that aligned with actual business objectives. CalMatters also needed a data democratization strategy that made data and goals more accessible across the organization.
+      </p>
+
+      <h2>Challenge</h2>
+
+      <p>CalMatters faced several challenges:</p>
+
+      <ul>
+        <li><strong>Siloed data architecture:</strong> Multiple disconnected systems prevented a unified view of audience behavior across platforms</li>
+        <li><strong>Editorial decisions without data accessibility:</strong> Reporters and editors lacked visibility into content performance, audience preferences and article-level metrics such as engaged time or referrer breakdown</li>
+        <li><strong>Data without insights:</strong> The existing dashboard captured a lot of metrics but they weren't supported with any clear takeaways or context for improvement</li>
+      </ul>
+
+      <h2>Technologies Used</h2>
+
+      <ul>
+        <li>Figma</li>
+        <li>Looker Studio</li>
+        <li>Google Apps Script</li>
+        <li>Mailchimp API</li>
+        <li>WordPress RSS</li>
+        <li>Supermetrics</li>
+        <li>Google Sheets</li>
+      </ul>
+
+      <h2>Approach</h2>
+
+      <p>My approach to this project centered on first understanding user needs. I interviewed key stakeholders across the organization, including reporters, editors, audience engagement staff, development and senior leadership, to understand what questions they had that data could help answer.</p>
+
+      <p>These conversations revealed that different teams needed different insights. For instance, editors wanted to know optimal publishing times for stories, reporters were curious about where traffic to their stories came from, our social media manager wanted to understand engagement across social platforms, and leadership needed to know how our loyal audience behaved.</p>
+
+      <p>I used the stakeholder interviews to define metrics and KPIs, and then I mapped them against the available data sources to determine if I could retrieve the data.</p>
+
+      <p>Most of what we needed was available in Google Analytics (GA4). Collecting WordPress publishing and Mailchimp newsletter data required writing Google Apps Script code. I partnered with our web developer to connect to the WordPress RSS feed and MailChimp API, pulling the data into Google Sheets. The scripts were set up to run automatically and append the spreadsheets with new data while preserving historical information.</p>
+
+      <p>Supermetrics, a web-based ETL tool, was another key enabler, allowing me to quickly and easily extract data from various sources — social media platforms in particular — and transfer it to Google Sheets.</p>
+
+      <p>When determining what to visualize, I considered the data type, what I was trying to communicate, and the audience for the visualization. For example, when editors requested optimal publishing insights, I used a pivot table with a heat map to show traffic patterns by time and day of the week, making peak engagement hours immediately visible.</p>
+
+      <img
+        src={heatmapImage.src}
+        alt="Heat map visualization showing optimal publishing times"
+        width="900"
+        height="480"
+      />
+
+      <p>I chose bar charts for comparing categories or values between groups, line charts for showing trends over time and stacked bar charts to visualize the composition of a whole when comparing categories (such as top traffic referrers).</p>
+
+      <p>I created wireframes and prototypes of each dashboard using Figma, defined the color palette based on best practices, ran user tests on the prototypes, incorporated feedback, and iterated on the designs. Then came the actual build of the dashboards in Looker Studio, connecting all of the data sources, setting up the metrics and visualizations, creating a glossary of terms, and final user testing.</p>
+
+      <h2>Training, Documentation & Feedback</h2>
+
+      <p>After deploying the dashboards, I led a comprehensive training session, wrote documentation and user guides, conducted ongoing maintenance and solicited user feedback post-launch.</p>
+
+      <p>I used the dashboards to distribute an organization-wide weekly analytics report that identified wins and opportunities for improvement while providing greater historical context.</p>
+
+      <img
+        src={weeklyReportImage.src}
+        alt="Weekly analytics report example"
+        width="360"
+        height="480"
+      />
+
+      <h2>Results</h2>
+
+      <p>The dashboards empowered editorial, membership and engagement teams to make faster, data-informed decisions. They also acted as a jumping off point for deeper analysis. For example, our managing editor came to me to understand the performance of question headlines compared to non-question headlines. My analysis found that headlines written in the form of a question received 20% less traffic on average.</p>
+
+      <p>By democratizing the data into intuitive dashboards made accessible to everyone, insights were no longer siloed to a select few, instead allowing for content optimization and product decisions to occur across the organization.</p>
+
+    </div>
+  </main>
+</Layout>
