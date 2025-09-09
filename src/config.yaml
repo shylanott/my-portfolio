@@ -11,20 +11,20 @@ metadata:
   title:
     default: Shyla Nott
     template: 'Shyla Nott'
-  description: "Data Analytics | Product Strategy | 10 years of experience in news media"
+  description: "Data Analytics | Product Strategy | 10 years of experience in media"
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: Shyla Nott | Data Analytics + Product Strategy
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/headshot.jpg'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@arthelokyo'
-    site: '@arthelokyo'
+    handle: '@shylanott'
+    site: '@shylanott'
     cardType: summary_large_image
 
 i18n:
@@ -66,7 +66,7 @@ apps:
 analytics:
   vendors:
     googleAnalytics:
-      id: null # or "G-XXXXXXXXXX"
+      id: 'G-RMF42E71Y1' # or "G-XXXXXXXXXX"
 
 ui:
   theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
